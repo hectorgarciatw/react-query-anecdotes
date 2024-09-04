@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AnecdoteForm from "./components/AnecdoteForm";
 import Notification from "./components/Notification";
 import { useAnecdotes } from "./hooks/useAnecdotes";
+import { NotificationProvider } from "./contexts/NotificationContext";
 
 const App = () => {
     const { data: anecdotes = [], isLoading, isError, addAnecdote, voteAnecdote } = useAnecdotes();

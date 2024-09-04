@@ -1,18 +1,23 @@
+import React from "react";
+import { useNotification } from "../contexts/NotificationContext";
+
 const Notification = () => {
-  const style = {
-    border: 'solid',
-    padding: 10,
-    borderWidth: 1,
-    marginBottom: 5
-  }
-  
-  if (true) return null
+    const { state } = useNotification();
 
-  return (
-    <div style={style}>
-      
-    </div>
-  )
-}
+    if (!state.message) {
+        return null;
+    }
 
-export default Notification
+    const notificationStyle = {
+        border: "solid",
+        padding: 10,
+        borderWidth: 1,
+        marginBottom: 5,
+        color: state.type === "error" ? "red" : "green",
+        backgroundColor: state.type === "error" ? "#ffdddd" : "#ddffdd",
+    };
+
+    return <div style={notificationStyle}>{state.message}</div>;
+};
+
+export default Notification;

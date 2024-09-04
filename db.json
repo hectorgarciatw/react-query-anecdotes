@@ -32,7 +32,7 @@
     },
     {
       "content": "This is a default anecdote",
-      "votes": 0,
+      "votes": 1,
       "id": "-mMLWpp"
     },
     {
@@ -49,6 +49,51 @@
       "content": "A JavaScript Anecdote",
       "votes": 5,
       "id": "q2mSM9E"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "QmDvTR0"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "M4Nn7UT"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "d2ubIeo"
+    },
+    {
+      "content": "alogoloco",
+      "votes": 0,
+      "id": "jYNk5LA"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "TnWb8pU"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "fLD_DwE"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "FmhsfU5"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "OMbLeTs"
+    },
+    {
+      "content": "This is a default anecdote",
+      "votes": 0,
+      "id": "YtetIwm"
     }
   ]
 }

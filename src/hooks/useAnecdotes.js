@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
+import { useNotification } from "../contexts/NotificationContext";
 
 const fetchAnecdotes = async () => {
     const { data } = await axios.get("http://localhost:3001/anecdotes");
@@ -12,7 +13,7 @@ const createAnecdote = async (newAnecdote) => {
 };
 
 const updateAnecdoteVotes = async (anecdote) => {
-    const { data } = await axios.put(`http://localhost:3001/anecdotes/${anecdote.id}`, {
+    const { data } = await axios.patch(`http://localhost:3001/anecdotes/${anecdote.id}`, {
         ...anecdote,
         votes: anecdote.votes + 1,
     });
@@ -21,26 +22,29 @@ const updateAnecdoteVotes = async (anecdote) => {
 
 export const useAnecdotes = () => {
     const queryClient = useQueryClient();
+    const { setNotification } = useNotification();
 
     const query = useQuery("anecdotes", fetchAnecdotes, {
-        initialData: [], // Inicializa con una lista vacía
+        initialData: [],
     });
 
     const createMutation = useMutation(createAnecdote, {
         onSuccess: () => {
             queryClient.invalidateQueries("anecdotes");
+            setNotification("A new anecdote created!", "info");
         },
     });
 
-    const updateMutation = useMutation(updateAnecdoteVotes, {
+    const voteMutation = useMutation(updateAnecdoteVotes, {
         onSuccess: () => {
             queryClient.invalidateQueries("anecdotes");
+            setNotification("Anecdote voted!", "info");
         },
     });
 
     return {
         ...query,
         addAnecdote: createMutation.mutate,
-        voteAnecdote: updateMutation.mutate,
+        voteAnecdote: voteMutation.mutate,
     };
 };
